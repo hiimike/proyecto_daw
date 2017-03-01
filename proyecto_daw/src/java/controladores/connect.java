@@ -37,8 +37,14 @@ public class connect extends HttpServlet {
         
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String cedula= request.getParameter("cedula");
+            String nombre= request.getParameter("nombre");
+            String email = request.getParameter("email");
+            String clave= request.getParameter("clave");
             if(cn!=null){
-                 out.println("<!DOCTYPE html>");
+                controladores.metodo me= new controladores.metodo(nombre, email, clave);
+                response.sendRedirect("index.html");
+                 /*out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
                 out.println("<title>Servlet connect</title>");
@@ -46,7 +52,8 @@ public class connect extends HttpServlet {
                 out.println("<body>");
                 out.println("<h1>Servlet connect at Conectado</h1>");
                 out.println("</body>");
-                out.println("</html>");
+                out.println("</html>");*/
+                 
             } else {
                 /* TODO output your page here. You may use following sample code. */
                 out.println("<!DOCTYPE html>");
