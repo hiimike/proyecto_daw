@@ -27,7 +27,7 @@ public class conexion {
         try{
             
             Class.forName(driver);
-            cn= DriverManager.getConnection(url,user,pass);
+            cn= DriverManager.getConnection(url, user, pass);
             
             return cn;
             

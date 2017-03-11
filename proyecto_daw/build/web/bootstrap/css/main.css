@@ -176,3 +176,16 @@
     }
   }
 
+
+  .personal{
+	margin: 10px;
+	border: solid;
+	border-width: 1px;
+	border-color: grey;
+
+}
+.personal input{
+	margin: 5px;
+}
+
+
