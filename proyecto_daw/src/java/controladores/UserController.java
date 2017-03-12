@@ -53,6 +53,8 @@ public class UserController extends HttpServlet {
                     logout(request,response);
                 else if ("register".equals(peticion))
                     register(request,response);
+                else if ("update".equals(peticion))
+                    update(request,response);
           }else if ("GET".equals(method)){
           
 
@@ -181,20 +183,51 @@ public class UserController extends HttpServlet {
             int id_usuario = c.getIdUsuario(user);
             if(id_usuario!=0){
             cruddatosUsuarios d = new cruddatosUsuarios();
-            datosUsuario datos = new datosUsuario(cedula,nombres,apellidos,null,null,null,id_usuario);
+            datosUsuario datos = new datosUsuario(cedula,nombres,apellidos,"","","",id_usuario);
             d.createdatosUsuario(datos);
             String msg = "Usuario creado";
             response.sendRedirect("index.jsp?msg="+msg);
         }
          }else{
             String msg = "Error al crear usuario";
-            response.sendRedirect("index.jsp?msg="+msg);
+            response.sendRedirect("index.jsp?error="+msg);
  
       }
             
         }
     }
     
+  
+  
+   private void update(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
+    String nombres = request.getParameter("nombres");
+    String apellidos = request.getParameter("apellidos");
+    String address = request.getParameter("address");
+    String telefono1 = request.getParameter("telefono1");
+    String telefono2 = request.getParameter("telefono2");
+    String cedula = request.getParameter("cedula");
+    
+    if("".equals(nombres) || "".equals(apellidos) || "".equals(cedula) || "".equals(address) || "".equals(telefono1) || "".equals(telefono2) ){
+     String msg = "Todos los campos son obligatorios";
+            response.sendRedirect("datos.jsp?error="+msg);
+        
+    }else{           
+            cruddatosUsuarios d = new cruddatosUsuarios();
+            datosUsuario datos = new datosUsuario(cedula,nombres,apellidos,address,telefono1,telefono2);
+            boolean resp = d.updatedatosUsuario(datos);
+            if(resp){
+            
+            String msg = "Datos Actualizados";
+            response.sendRedirect("datos.jsp?msg="+msg);
+        
+         }else{
+            String msg = "Error al Actualizar datos";
+            response.sendRedirect("datos.jsp?error="+msg);
+ 
+      }
+            
+        }
+    }
     
     
     }

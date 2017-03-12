@@ -96,7 +96,6 @@ public class AdminController extends HttpServlet {
        
        }else if(null!=request.getParameter("delete")){
            crudUsuario c = new crudUsuario();
-           cruddatosUsuarios d = new cruddatosUsuarios();
             boolean resp=false;
            try {
                resp=c.deleteUsuario(Integer.parseInt(request.getParameter("delete")));
@@ -107,7 +106,19 @@ public class AdminController extends HttpServlet {
            
             if(resp){
                 String msg="Cliente eliminado";
-            response.sendRedirect("Admin/index.jsp?msg="+msg);
+                HttpSession sesion = request.getSession();
+                List<usuario> lista;
+                crudUsuario read= new crudUsuario();
+               try {
+                   lista = read.getUsuarios();
+                   sesion.setAttribute("lista_usuarios", lista);
+                   response.sendRedirect("Admin/index.jsp?msg="+msg);
+               } catch (SQLException ex) {
+                   Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           
+                    
+               
             }
        
        
@@ -143,8 +154,19 @@ public class AdminController extends HttpServlet {
                     Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if(resp){
-                    String msg= "Cliente modificado";
+                     HttpSession sesion = request.getSession();
+                List<usuario> lista;
+                crudUsuario read= new crudUsuario();
+                     try {
+                   lista = read.getUsuarios();
+                   sesion.setAttribute("lista_usuarios", lista);
+                   String msg= "Cliente modificado";
                     response.sendRedirect("Admin/index.jsp?msg="+msg);
+                   
+               } catch (SQLException ex) {
+                   Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+                    
                 }
             }
        }

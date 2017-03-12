@@ -144,7 +144,7 @@ public  List<usuario> getUsuarios() throws SQLException{
        conect = new conexion();
         cn = conect.Conectar();
         listaUsuarios= new ArrayList();
-        query= "Select * from usuarios;";
+        query= "Select * from usuarios where id_rol=2";
         Statement st= cn.createStatement();
         ResultSet rs = st.executeQuery(query);
            while(rs.next()){

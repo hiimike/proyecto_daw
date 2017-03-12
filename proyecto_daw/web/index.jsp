@@ -21,17 +21,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 
-  <title>Pizzaeria</title>
+  <title>Pizzeria</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <link href="bootstrap/css/main.css" rel="stylesheet" type="text/css">
- <script src="bootstrap/js/jquery.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
@@ -51,13 +47,13 @@
         <li><a href="#about">NOSOTROS</a></li>
         <li><a href="#pricing">PRECIOS</a></li>
         <li><a href="#contact">CONTACTO</a></li>
-        <li><a href="pedido.jsp">ARMA TU PEDIDO</a></li>
       </ul>
-          <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
              <li><a href="" data-toggle="modal" data-target="#register" ><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-        <li><a href='' data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+             <li><a href='' data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
          </ul>
     </div>
+
         
 
   <!-- Modal -->
@@ -110,7 +106,7 @@
         </div>
         <div class="modal-body">
    
-            <form action="UserController" method="POST">
+            <form action="UserController" method="POST" onsubmit="return validate_ci()">
             
                  <div class="form-group">
                   <label for="nombres">Nombres:</label>
@@ -122,7 +118,8 @@
                 </div>
                  <div class="form-group">
                   <label for="user">Cedula:</label>
-                  <input type="text" class="form-control" id="cedula" name="cedula" placeholder="Cedula" required>
+                  <input type="text" class="form-control" id="cedula" name="cedula" placeholder="Cedula" onkeypress="return numeros(event)">
+                  <p id="cedula_msg" style="color: red;"></p>
                 </div>
                 
               <div class="form-group">
@@ -159,6 +156,7 @@
         <li><a href="#pricing">PRECIOS</a></li>
         <li><a href="#contact">CONTACTO</a></li>
        <li><a href="pedido.jsp">ARMA TU PEDIDO</a></li>
+       <li><a href="datos.jsp">MIS DATOS</a></li>
       </ul>
            <ul class="nav navbar-nav navbar-right">
                <li><a href="#" onclick="document.getElementById('form-id').submit();"> Cerrar Sesión </a></li>
@@ -167,8 +165,9 @@
             </form></a></li>
       </ul>
     </div>
+    
      <% } %>
-  </div>
+ </div>
 </nav>
   <% if(request.getParameter("msg")!=null){ %>
   <div class="alert alert-success" style="margin-top:40px;margin-bottom: 0;">
@@ -303,44 +302,8 @@ En 1967 se apertura la primera franquicia fuera del estado de Michigan y poco a 
 
 </footer>
 
-
-
-<script>
-$(document).ready(function(){
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-  
-  $(window).scroll(function() {
-    $(".slideanim").each(function(){
-      var pos = $(this).offset().top;
-
-      var winTop = $(window).scrollTop();
-        if (pos < winTop + 600) {
-          $(this).addClass("slide");
-        }
-    });
-  });
-});
-</script>
-
-</body>
-</html>
+ <script src="bootstrap/js/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="bootstrap/js/custom.js"></script>
+</body></html>
+</continue>

@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ice/Documents/GitHub/proyecto_daw/proyecto_daw/src/java/datos/crudUsuario.java</file>
-            <file>file:/C:/Users/ice/Documents/GitHub/proyecto_daw/proyecto_daw/src/java/controladores/UserController.java</file>
-            <file>file:/C:/Users/ice/Documents/GitHub/proyecto_daw/proyecto_daw/src/java/clases/usuario.java</file>
-            <file>file:/C:/Users/ice/Documents/GitHub/proyecto_daw/proyecto_daw/src/java/datos/cruddatosUsuarios.java</file>
-            <file>file:/C:/Users/ice/Documents/GitHub/proyecto_daw/proyecto_daw/src/java/clases/datosUsuario.java</file>
-            <file>file:/C:/Users/ice/Documents/GitHub/proyecto_daw/proyecto_daw/src/java/controladores/conexion.java</file>
+            <file>file:/C:/Users/ice/Documents/GitHub/proyecto_daw/proyecto_daw/web/Admin/index.jsp</file>
             <file>file:/C:/Users/ice/Documents/GitHub/proyecto_daw/proyecto_daw/web/index.jsp</file>
+            <file>file:/C:/Users/ice/Documents/GitHub/proyecto_daw/proyecto_daw/web/Admin/modificar.jsp</file>
         </group>
     </open-files>
 </project-private>

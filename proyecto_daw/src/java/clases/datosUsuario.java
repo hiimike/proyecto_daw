@@ -32,6 +32,16 @@ public class datosUsuario {
         this.id_usuario = id_usuario;
     }
 
+    public datosUsuario(String cedula, String nombres, String apellidos, String direccion, String telefono1, String telefono2) {
+      this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.direccion = direccion;
+        this.telefono1 = telefono1;
+        this.telefono2 = telefono2;
+        
+    }
+
     public String getCedula() {
         return cedula;
     }

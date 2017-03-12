@@ -50,17 +50,17 @@ public class cruddatosUsuarios {
    return resp;
    } 
     
-  public datosUsuario getdatosUsuario(String cedula) throws SQLException{
+  public datosUsuario getdatosUsuario(int cod_cliente) throws SQLException{
    
    try{
         conect = new conexion();
         cn =  conect.Conectar();
-        query= "Select * from dusuarios where cedula = '"+cedula+"';";
+        query= "Select * from proyecto_daw.dusuarios where id_usuario ="+cod_cliente+";";
         Statement st= cn.createStatement();
         ResultSet rs = st.executeQuery(query);
            while(rs.next()){
                 user = new datosUsuario(rs.getString(1),rs.getString(2),
-                        rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(4));
+                        rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(7));
            }
         }catch(SQLException e){
          System.out.println("error al recuperar datos de usuario");

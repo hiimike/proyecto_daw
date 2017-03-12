@@ -30,9 +30,9 @@
         <title>Clientes</title>
       <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+ <script src="../bootstrap/js/jquery.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>  
        <nav class="navbar navbar-default">
@@ -49,10 +49,10 @@
         <h1>Clientes</h1>
         <button class="btn btn-success" type="button" onclick="window.location.href='../AdminController?consult=true';" >Listado de Clientes</button>
    
-        <p><%
-            if(request.getParameter("msg")!=null)
-                out.println(request.getParameter("msg"));
-            %></p>
+        <% if(request.getParameter("msg")!=null){ %>
+            <div class="alert alert-success" style="margin-top:40px;margin-bottom: 0;">
+                <strong><%=request.getParameter("msg")%></strong>
+                </div> <% }  %>
     </center>
     
     <%
